@@ -15,8 +15,8 @@ export const gettask = async (req, res) => {
     res.status(200).send(user)
 }
 export const getall = async (req, res) => {
-    const user = await User.find()
-    res.status(200).send(user)
+    const user = await User.find().then((res)=>res.status(200).send(user)).catch((err)=>console.log(err))
+    
 }
 export const findbystatus = async (req, res) => {
     const user = await User.findOne({ status: req.body.status })

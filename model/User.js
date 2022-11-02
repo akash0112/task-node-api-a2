@@ -9,5 +9,12 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    startdate: {
+        type: Date,
+        default: Date.now,
+      },
+    enddate: {
+        type: Date,
+      },
 },{ collection: 'User' });
 export const User = mongoose.model("User", userSchema)
